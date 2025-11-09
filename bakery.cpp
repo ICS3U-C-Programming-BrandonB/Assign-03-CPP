@@ -24,21 +24,21 @@ int main() {
         int itemCountAsInt = std::stoi(itemCountAsString);
 
         // calculate total cost, tax and subtotal
-        float totalCost = itemCountAsInt * croissantPrice;
-        float tax = totalCost * HST;
-        float subtotal = totalCost + tax;
+        float subtotal = itemCountAsInt * croissantPrice;
+        float tax = subtotal * HST;
+        float totalCost = subtotal + tax;
 
         // determine if the user ordered enough to not pay tax
         if (itemCountAsInt >= 6) {
             std::cout << "You have ordered more than 6 croissants, "
                       << "You don't have to pay tax! "
                       << "Your Total is: $" << std::fixed
-                      << std::setprecision(2) << totalCost << std::endl;
+                      << std::setprecision(2) << subtotal << std::endl;
         } else {
             std::cout << "You have ordered less than 6 croissants, "
                       << "You have to pay tax! "
                       << "Your Total is: $" << std::fixed
-                      << std::setprecision(2) << subtotal << std::endl;
+                      << std::setprecision(2) << totalCost << std::endl;
         }
     } catch (std::invalid_argument) {
         // The user did not enter an integer.
