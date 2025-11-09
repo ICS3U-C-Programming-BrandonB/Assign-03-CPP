@@ -9,8 +9,7 @@
 #include <string>
 
 int main() {
-    // declare integer to hold user order
-    int itemCount;
+    // declare constants and variables
     const float croissantPrice = 2.55;
     const float HST = 0.13;
     std::string itemCountAsString;
